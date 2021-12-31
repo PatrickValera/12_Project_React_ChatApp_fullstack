@@ -18,3 +18,29 @@
     -webkit-box-shadow: 5px 5px 50px 50px rgba(80, 80, 88, 0.32); 
     box-shadow: 5px 5px 50px 100px rgba(80, 80, 88, 0.32); 
 }
+.router-link{
+    text-decoration: none;
+    color:white
+}
+.message-input{
+    flex-grow: 1;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

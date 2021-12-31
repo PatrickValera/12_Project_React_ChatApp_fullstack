@@ -1,4 +1,4 @@
-import { Avatar, Box, Paper, styled, Input } from '@mui/material'
+import { Avatar, Box, Paper, styled, Input, Typography } from '@mui/material'
 import React from 'react'
 
 const StyledTextField = styled(Input)(({ theme }) => ({
@@ -24,9 +24,13 @@ const Room = () => {
         <Box className='room-nav' sx={{ p: 3, backgroundColor: 'primary.main', height: '100%' }}>
             <StyledTextField disableUnderline id="search" variant='filled' placeholder='Search...' autoComplete='off' onKeyUp={()=>{console.log('hello')}}/>
             <Paper sx={{ display: 'flex', p: 1 }}>
-                <Avatar sx={{}} variant="rounded">
-                    PV
+                <Avatar sx={{backgroundColor:'white'}} variant="rounded" src='/images/poop.png'>
+                    {/* PV */}
                 </Avatar>
+                <Box display='block' sx={{ml:1}}>
+                    <Typography variant='body1' color='white'>Mr. Poop</Typography>
+                    <Typography variant='body1' fontSize='.6rem' color='white'>Active</Typography>
+                </Box>
             </Paper>
         </Box>
     )

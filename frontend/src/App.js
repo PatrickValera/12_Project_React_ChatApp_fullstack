@@ -11,13 +11,13 @@ import Login from './screens/Login'
 function Main() {
   return (
     <Box component='main' display='flex' sx={{ flexWrap: 'wrap', alignItems: 'stretch', height: '100vh' }}>
-      <Box sx={{ flex: '100px 0 0' }}>
+      <Box sx={{ flex: '60px 0 0' }}>
         <Navigation />
       </Box>
-      <Box sx={{ flex: '250px 1 1' }}>
+      <Box sx={{ flex: '220px 1 1' }}>
         <Room />
       </Box>
-      <Box sx={{ flex: '500px 5 3' }}>
+      <Box sx={{ flex: '500px 6 3' }}>
         <Chat />
       </Box>
     </Box>
