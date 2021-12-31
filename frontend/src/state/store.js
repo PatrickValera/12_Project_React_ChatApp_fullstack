@@ -1,35 +1,19 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers,applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
+import {userLoginReducer} from './reducer/userReducer'
 
-
-
-
-const todoListReducer = (state = {}, action) => {
-    return state
-}
-
-const userSettingsReducer = (state = {}, action) => {
-    return state
-
-}
-const appStateReducer = (state = {}, action) => {
-    return state
-}
 
 const initialState = {
-    todoList: {
-    },
-    userSettings: {
-    },
-    appState: {
-    }
+
 }
 const reducers = combineReducers({
-    todoList: todoListReducer,
-    userSettings: userSettingsReducer,
-    appState: appStateReducer
+    userLogin:userLoginReducer,
 })
 
-const store = createStore(reducers, initialState, composeWithDevTools())
+const middleware=[thunk]
+
+const store=createStore(reducers,initialState, composeWithDevTools(applyMiddleware(...middleware)))
+
 
 export default store
