@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import Chat from './screens/Chat'
 import Room from './screens/Room'
 import Login from './screens/Login'
+import Register from './screens/Register'
 
 function Main() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <CssBaseline />
       <Router>
         <Routes>
+        <Route path='/register' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/' element={<Main/>} />
         </Routes>
