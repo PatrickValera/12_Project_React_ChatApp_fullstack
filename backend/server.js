@@ -6,7 +6,7 @@ import connectDB from './config/dataBase.js'
 import userRoutes from './routes/userRoutes.js'
 import roomRoutes from './routes/roomRoutes.js'
 
-const __dirname1 = path.resolve()
+const __dirname = path.resolve()
 
 // CREATE EXPRESS APP
 const app = express()
