@@ -1,1 +1,1 @@
-web: node backend/server.js & node backend/socket.js & wait -n
+web: node backend/server.js && node backend/socket.js
