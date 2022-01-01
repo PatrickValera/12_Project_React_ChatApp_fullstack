@@ -21,10 +21,10 @@ connectDB()
 app.use(express.json())
 
 // Attack io to response
-app.use((req,res,next)=>{
-    req.io=io
-    next()
-})
+// app.use((req,res,next)=>{
+//     req.io=io
+//     next()
+// })
 
 // SERVE BUILD FILES TO CLIENT
 if(process.env.NODE_ENV==='production'){
@@ -40,6 +40,6 @@ if(process.env.NODE_ENV==='production'){
 
 // ROUTES HERE
 app.use('/api/users',userRoutes)
-app.use('/api/rooms',roomRoutes)
+// app.use('/api/rooms',roomRoutes)
 
-app.listen(process.env.PORT || 5000, console.log('SERVER RUNNING'))
+app.listen(process.env.PORT,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))
