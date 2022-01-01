@@ -5,20 +5,12 @@ import dotenv from 'dotenv'
 import connectDB from './config/dataBase.js' 
 import userRoutes from './routes/userRoutes.js'
 import roomRoutes from './routes/roomRoutes.js'
-import { createServer } from 'http'
-import {Server} from 'socket.io'
+
 const __dirname1 = path.resolve()
 
 // CREATE EXPRESS APP
 const app = express()
-const httpServer=createServer(app)
-const io=new Server(httpServer,{
-    cors:{origin:['http://localhost:3000/'],  
-    credentials: true
-}})
-io.on('connection',socket=>{
-    console.log("HELLO")
-})
+
 //Global env variables
 dotenv.config()
 
