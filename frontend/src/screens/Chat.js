@@ -15,7 +15,7 @@ const Chat = () => {
         if (e.key === 'Enter') submitMsg()
     }
     useEffect(() => {
-        socket.current = io("ws://localhost:8900");
+        socket.current = io("ws://localhost:5000");
         socket.current.on("getMessage", (data) => {
             console.log(data)
             setMessages(state => [...state, data.text])

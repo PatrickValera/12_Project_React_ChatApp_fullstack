@@ -4,12 +4,30 @@ import path from 'path'
 import dotenv from 'dotenv'
 import connectDB from './config/dataBase.js' 
 import userRoutes from './routes/userRoutes.js'
-import roomRoutes from './routes/roomRoutes.js'
+// import roomRoutes from './routes/roomRoutes.js'
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 const __dirname = path.resolve()
 
 // CREATE EXPRESS APP
 const app = express()
+const httpServer=createServer(app)
+const io = new Server(httpServer,{
+    cors: {
+        origin: "http://localhost:3000",
+    },
+})
+
+io.on("connection", (socket) => {
+    // console.log(socket.id)
+    socket.on("sendMessage", ({ text }) => {
+        // const user = getUser(receiverId);
+        io.emit("getMessage", {
+            text,
+        });
+    });
+});
 
 //Global env variables
 dotenv.config()
@@ -42,4 +60,4 @@ if(process.env.NODE_ENV==='production'){
 app.use('/api/users',userRoutes)
 // app.use('/api/rooms',roomRoutes)
 
-app.listen(process.env.PORT,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))
+httpServer.listen(process.env.PORT||5000,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))

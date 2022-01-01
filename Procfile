@@ -1,1 +1,1 @@
-web: node backend/server.js && node backend/socket.js
+web: node backend/server.js
