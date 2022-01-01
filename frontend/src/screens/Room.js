@@ -4,7 +4,7 @@ import React from 'react'
 const StyledTextField = styled(Input)(({ theme }) => ({
     width: '100%',
     marginBottom:'15px',
-    zIndex:'6',
+    zIndex:'1',
     // '& .MuiInputLabel-root': {
     //     color: theme.palette.grey[100],
     // },

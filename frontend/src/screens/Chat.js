@@ -15,7 +15,7 @@ const Chat = () => {
         if (e.key === 'Enter') submitMsg()
     }
     useEffect(() => {
-        socket.current = io("ws://localhost:5000");
+        socket.current = io(window.location.pathname);
         socket.current.on("getMessage", (data) => {
             console.log(data)
             setMessages(state => [...state, data.text])
@@ -25,7 +25,7 @@ const Chat = () => {
         msgsContainer.current.scrollTop = msgsContainer.current.scrollHeight
     }, [messages])
     return (
-        <Box display='flex' sx={{ height: '100vh', p: 4, backgroundColor: 'primary.dark', height: '100%', position: 'relative', flexDirection: 'column' }}>
+        <Box display='flex' sx={{ height: '100vh', p: 4, backgroundColor: 'primary.dark', height: '100%', position: 'relative', flexDirection: 'column',zIndex:3 }}>
             <Box sx={{ flexGrow: '1', height: '1px' }}>
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
                     {messages.map((item) => (
