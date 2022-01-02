@@ -54,9 +54,9 @@ const Chat = () => {
     useEffect(() => {
         setMessages([])
         socket.current.emit('join-room', roomName)
-        setTimeout(() => fetchMsgs(), 80)
+        let timer=setTimeout(() => fetchMsgs(), 80)
         // fetchMsgs()
-        return (() => { clearTimeout() })
+        return (() => { clearTimeout(timer) })
     }, [roomName])
 
     useEffect(() => {
@@ -69,7 +69,7 @@ const Chat = () => {
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
                     {messages.map((message, index) => (
                         <Box key={index} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
-                            {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/${message.icon||'poop.png'}`}/>}
+                            {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/poop.png`}/>}
                             <Box display='block'>
                                 {message.sender && roomName === 'global' && <Typography variant='body1' fontWeight='600' color="grey.600" sx={{ mt: 1 }}>{message.sender}</Typography>}
                                 <Paper sx={{ p: 1, mb: 1, color: 'white' }}>

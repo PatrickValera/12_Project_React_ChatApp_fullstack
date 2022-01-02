@@ -19,7 +19,7 @@ router.post('/global',function(req,res){
     req.app.io.to(toRoom).emit("getMessage", {
         text,
         sender,
-        icon:icon
+        icon
     });
     msg.save(error=>{
         if(error){
