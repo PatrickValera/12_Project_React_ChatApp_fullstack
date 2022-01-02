@@ -4,7 +4,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 import connectDB from './config/dataBase.js' 
 import userRoutes from './routes/userRoutes.js'
-// import roomRoutes from './routes/roomRoutes.js'
+import roomRoutes from './routes/roomRoutes.js'
 import { createServer } from "http";
 import { Server } from "socket.io";
 
@@ -18,12 +18,12 @@ const io = new Server(httpServer,{
         origin: "http://localhost:3000",
     },
 })
-
+app.io=io
 io.on("connection", (socket) => {
     // console.log(socket.id)
     socket.on("sendMessage", ({ text,sender,toRoom }) => {
         // const user = getUser(receiverId);
-        console.log(toRoom)
+        // console.log(toRoom)
         io.to(toRoom).emit("getMessage", {
             text,
             sender
@@ -45,7 +45,7 @@ connectDB()
 //To access the req body json
 app.use(express.json())
 
-// Attack io to response
+// Attach io to response
 // app.use((req,res,next)=>{
 //     req.io=io
 //     next()
@@ -65,6 +65,6 @@ if(process.env.NODE_ENV==='production'){
 
 // ROUTES HERE
 app.use('/api/users',userRoutes)
-// app.use('/api/rooms',roomRoutes)
+app.use('/api/rooms',roomRoutes)
 
 httpServer.listen(process.env.PORT||5000,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))

@@ -26,7 +26,7 @@ const Room = () => {
     const { roomName } = useSelector(state => state.roomDetails)
     const [userName, setUserName] = useState()
     const { userInfo } = useSelector(state => state.userLogin)
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const menuOpen = Boolean(anchorEl);
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -49,9 +49,9 @@ const Room = () => {
     }, [userInfo])
 
     return (
-        <Box className='room-nav' sx={{ p: 4, backgroundColor: 'primary.main', height: '100%', zIndex: '1' }}>
+        <Box className='room-nav' sx={{ p: 4,pt:'50px', backgroundColor: 'primary.main', height: '100%', zIndex: '1' }}>
             <StyledTextField disableUnderline id="search" variant='filled' placeholder='Search...' autoComplete='off' onKeyUp={() => { console.log('hello') }} />
-            <Paper sx={{ display: 'flex', p: 1, mb: 2, alignItems: 'center' }}>
+            <Paper sx={{ display: 'flex', p: 2, mb: 2, alignItems: 'center' }}>
                 <Avatar sx={{ backgroundColor: 'white' }} variant="rounded" src='/images/poop.png'>
                     {/* PV */}
                 </Avatar>
@@ -61,9 +61,9 @@ const Room = () => {
                 </Box>
                 <Typography fontSize='1rem' color='grey.500'
                     id="basic-button"
-                    aria-controls={menuOpen ? 'basic-menu' : undefined}
+                    // aria-controls={menuOpen ? 'basic-menu' : undefined}
                     aria-haspopup="true"
-                    aria-expanded={menuOpen ? 'true' : undefined}
+                    // aria-expanded={menuOpen ? 'true' : undefined}
                     onClick={handleMenu}
                     sx={{cursor:'pointer'}}>
                     <i className="fas fa-ellipsis-h"></i>
@@ -81,7 +81,7 @@ const Room = () => {
                     <MenuItem onClick={handleLogout} sx={{ color: 'grey.500', fontWeight: '600' }}>Logout</MenuItem>
                 </Menu>
             </Paper>
-            <Typography color='grey.800' fontWeight='600' onClick={handleClick} sx={{ mt: 4, mb: 1 }}>
+            <Typography color='grey.800' fontWeight='600' onClick={handleClick} sx={{ mt: 4, mb: 1,cursor: 'pointer'}}>
                 {open ? <i className="fas fa-chevron-up" /> : <i className="fas fa-chevron-down"></i>}
                 ROOMS
             </Typography>

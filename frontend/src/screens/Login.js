@@ -54,7 +54,7 @@ const Login = () => {
                 {error && <Typography color='error'>{error}</Typography>}
                 <StyledInput id='email' placeholder='username' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
                 <StyledInput placeholder='password' disableUnderline autoComplete='off' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
-                <Button color='primary' variant='contained' disableRipple disableElevation onClick={handleClick} sx={{ mt: '40px' }}>Login</Button>
+                <Button color='primary' size='large' variant='contained' disableRipple disableElevation onClick={handleClick} sx={{ mt: '40px',width:'40%' }}>Login</Button>
                 <Link to="/register" className='router-link'> <Typography color='white' onClick={loadDemo} sx={{ cursor: 'pointer' }} gutterBottom>Sign Up</Typography></Link>
                 <Typography color='secondary' onClick={loadDemo} sx={{ cursor: 'pointer' }}>Load demo user</Typography>
             </Container>

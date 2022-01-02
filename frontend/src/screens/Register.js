@@ -28,11 +28,18 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [error,setError]=useState('')
     const {userInfo,error:registerError,loading}=useSelector(state=>state.userRegister)
     const dispatch=useDispatch()
     const handleClick = () => {
-        // setError('REGISTER ACTION BROKEN LOL')
+        setError('')
+        if(confirmPassword===password&&email&&userName)
         dispatch(register(email, password, userName))
+        else{
+            if(confirmPassword!==password)setError('check password')
+            else setError('Error')
+        }
     }
     useEffect(()=>{
         if(userInfo)navigate('/')
@@ -40,13 +47,15 @@ const Register = () => {
 
     return (
         <Box display='flex' autoComplete='off' sx={{ width: '100vw', height: '100vh', backgroundColor: 'primary.dark', alignItems: 'center' }}>
-            <Container maxWidth='sm' component='form' sx={{ backgroundColor: 'primary.light', height:{xs:'100vh',sm:'500px'}, justifyContent:'center',alignItems:'center',gap:'10px', display:'flex',flexDirection:'column' }}>
+            <Container maxWidth='sm' component='form' sx={{ backgroundColor: 'primary.light', height:{xs:'100vh',sm:'600px'}, justifyContent:'center',alignItems:'center',gap:'10px', display:'flex',flexDirection:'column' }}>
                 <Typography color='white' fontFamily='La Belle Aurore' fontSize='5rem'>Poopcord</Typography>
                 <Typography color='grey.500' variant='body1' sx={{mb:4,mt:'-20px'}}>Discord but shit</Typography>
                 {registerError&&<Typography color='error'>{registerError}</Typography>}
+                {error&&<Typography color='error'>{error}</Typography>}
                 <StyledInput id='test' placeholder='email' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
                 <StyledInput id='test' placeholder='username' disableUnderline autoComplete='off' value={userName} type='text' onChange={(e) => setUserName(e.target.value)} />
                 <StyledInput placeholder='password' disableUnderline autoComplete='off' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
+                <StyledInput placeholder='password' disableUnderline autoComplete='off' value={confirmPassword} type='password' onChange={(e) => setConfirmPassword(e.target.value)} />
                 <Button color='primary' variant='contained' disableRipple disableElevation onClick={handleClick} sx={{mt:'40px',mb:'10px'}}>Register</Button>
                 <Link to="/login" className='router-link'> <Typography color='white' sx={{cursor:'pointer'}} gutterBottom>Or Sign In</Typography></Link>
             </Container>

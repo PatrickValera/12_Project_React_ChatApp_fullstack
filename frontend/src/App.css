@@ -25,6 +25,20 @@
 }
 .message-input{
     flex-grow: 1;
+    border: none;
+    background-color: #212324;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: .025rem;
+    resize: none;
+    height: 60px;
+
+    /* box-shadow:  0px 5px 20px rgb(34, 34, 34); */
+}
+.message-input:focus{
+outline: none;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -47,4 +61,7 @@
   }
   .fas{
     margin-right:5px;
+  }
+  .msg{
+    white-space: pre-wrap;
   }

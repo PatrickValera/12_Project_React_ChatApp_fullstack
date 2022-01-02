@@ -7,7 +7,7 @@ let darkTheme = createTheme({
             light: '#1C1E1F',
             main: '#181A1B',
             dark: '#161819',
-            contrastText: '#89898C',
+            contrastText: '#a9a9aC',
         },
         background: {
             paper: '#27292E',
@@ -16,7 +16,7 @@ let darkTheme = createTheme({
     },
     typography: {
         body1: {
-            fontSize: '0.8rem',
+            fontSize: '0.85rem',
         },
         h1: {
             fontSize: '4rem',
