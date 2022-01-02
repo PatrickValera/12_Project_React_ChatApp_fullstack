@@ -12,13 +12,13 @@ import Register from './screens/Register'
 function Main() {
   return (
     <Box component='main' display='flex' sx={{ flexWrap: 'wrap', alignItems: 'stretch', height: '100vh',position:'relative' }}>
-      <Box sx={{ flex: '60px 0 0',position:{xs:'absolute',md:'relative'}  }}>
+      {/* <Box sx={{ flex: '60px 0 0',position:{xs:'absolute',md:'relative'}  }}>
         <Navigation />
-      </Box>
-      <Box sx={{ flex: '220px 1 1',position:{xs:'absolute',md:'relative'}  }}>
+      </Box> */}
+      <Box sx={{ flex: '240px 2 1',position:{xs:'absolute',md:'relative'}  }}>
         <Room />
       </Box>
-      <Box sx={{ flex: '500px 6 3' }}>
+      <Box sx={{ flex: '500px 6 1' }}>
         <Chat />
       </Box>
     </Box>

@@ -21,12 +21,19 @@ const io = new Server(httpServer,{
 
 io.on("connection", (socket) => {
     // console.log(socket.id)
-    socket.on("sendMessage", ({ text }) => {
+    socket.on("sendMessage", ({ text,sender,toRoom }) => {
         // const user = getUser(receiverId);
-        io.emit("getMessage", {
+        console.log(toRoom)
+        io.to(toRoom).emit("getMessage", {
             text,
+            sender
         });
     });
+    socket.on('join-room',room=>{
+        socket.join(room)
+        if(room==='global')socket.leave('globalanon')
+        else socket.leave('global')
+    })
 });
 
 //Global env variables
