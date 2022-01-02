@@ -1,23 +1,25 @@
 import express from 'express'
 const router = express.Router()
 import Message from '../models/messageModel.js'
-router.get('/global',function(req,res){
-    // res.io.on('connection',(socket)=>{
-    //     console.log('CONNECTED')
-    // })
-    console.log('req.app.iwfeewfewfo.emit')
 
+router.get('/:roomName',async function(req,res){
+    const{roomName}=req.params
+    let data=await Message.find({room:roomName})
+    res.json(data)
+    res.end()
 })
 router.post('/global',function(req,res){
-    const {text,sender,toRoom}=req.body
-    let msg=new Message({
+    const {text,sender,toRoom,icon}=req.body
+    let msg = new Message({
         sender:sender,
         text:text,
-        room:toRoom
+        room:toRoom,
+        icon:icon
     })
     req.app.io.to(toRoom).emit("getMessage", {
         text,
-        sender
+        sender,
+        icon:icon
     });
     msg.save(error=>{
         if(error){

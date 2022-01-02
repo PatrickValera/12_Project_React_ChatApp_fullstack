@@ -18,6 +18,11 @@ const userSchema = mongoose.Schema({
         type:Boolean,
         required:true,
         default:false
+    },
+    icon:{
+        type:String,
+        required:false,
+        defaulault:'poop.png'
     }
 }, {
     timestamps: true

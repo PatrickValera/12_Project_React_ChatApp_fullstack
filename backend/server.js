@@ -22,8 +22,6 @@ app.io=io
 io.on("connection", (socket) => {
     // console.log(socket.id)
     socket.on("sendMessage", ({ text,sender,toRoom }) => {
-        // const user = getUser(receiverId);
-        // console.log(toRoom)
         io.to(toRoom).emit("getMessage", {
             text,
             sender

@@ -30,7 +30,8 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [error,setError]=useState('')
-    const {userInfo,error:registerError,loading}=useSelector(state=>state.userRegister)
+    const {error:registerError,loading}=useSelector(state=>state.userRegister)
+    const {userInfo}=useSelector(state=>state.userLogin)
     const dispatch=useDispatch()
     const handleClick = () => {
         setError('')
