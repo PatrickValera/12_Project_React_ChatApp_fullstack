@@ -5,9 +5,9 @@ import {userLoginReducer,userRegisterReducer} from './reducer/userReducer'
 import {roomDetailsReducers} from './reducer/roomDetailsReducers'
 
 
-const userInfoFromStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
+// const userInfoFromStorage = localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
 const initialState = {
-    userLogin:{userInfo:userInfoFromStorage}
+    // userLogin:{userInfo:userInfoFromStorage}
 }
 const reducers = combineReducers({
     userLogin:userLoginReducer,

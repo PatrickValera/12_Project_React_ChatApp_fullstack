@@ -67,7 +67,7 @@ const Chat = () => {
         <Box display='flex' sx={{ height: '100vh', p: 4, backgroundColor: 'primary.dark', height: '100%', position: 'relative', flexDirection: 'column', zIndex: '2', pt: '50px' }}>
             <Box sx={{ flexGrow: '1', height: '1px' }}>
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    {messages.map((message, index) => (
+                    {messages&&messages.map((message, index) => (
                         <Box key={index} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
                             {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/poop.png`}/>}
                             <Box display='block'>
