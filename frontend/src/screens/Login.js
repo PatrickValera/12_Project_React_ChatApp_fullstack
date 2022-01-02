@@ -52,7 +52,7 @@ const Login = () => {
                 <Typography color='white' fontFamily='La Belle Aurore' fontSize='5rem'>Poopcord</Typography>
                 <Typography color='grey.500' variant='body1' sx={{ mb: 4, mt: '-20px' }}>Discord but shit</Typography>
                 {error && <Typography color='error'>{error}</Typography>}
-                <StyledInput id='email' placeholder='username' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
+                <StyledInput id='email' placeholder='email' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
                 <StyledInput placeholder='password' disableUnderline autoComplete='off' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
                 <Button color='primary' size='large' variant='contained' disableRipple disableElevation onClick={handleClick} sx={{ mt: '40px',width:'40%' }}>Login</Button>
                 <Link to="/register" className='router-link'> <Typography color='white' onClick={loadDemo} sx={{ cursor: 'pointer' }} gutterBottom>Sign Up</Typography></Link>

@@ -56,8 +56,8 @@ const Room = () => {
                     {/* PV */}
                 </Avatar>
                 <Box display='block' sx={{ ml: 1, flexGrow: '1' }}>
-                    <Typography variant='body1' color='white'>{userName}</Typography>
-                    <Typography variant='body1' fontSize='.7rem' color='grey.500'>Active</Typography>
+                    <Typography variant='body1' fontWeight='700' color='white'>{userName}</Typography>
+                    <Typography variant='body1' fontWeight='600'fontSize='.7rem' color='grey.500'>Active</Typography>
                 </Box>
                 <Typography fontSize='1rem' color='grey.500'
                     id="basic-button"

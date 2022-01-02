@@ -71,9 +71,9 @@ const Chat = () => {
                     ))}
                 </Box>
             </Box>
-            <Box display='flex' sx={{ p: 2 }}>
+            <Box display='flex' sx={{ position:'relative' }}>
                 <textarea id='message' autoFocus className='message-input' placeholder='Message' autoComplete='off' value={msg} onChange={(e) => setMsg(e.target.value)} onKeyPress={handleEnter}></textarea>
-                <Button variant='contained' color='secondary' disableElevation disableRipple onClick={submitMsg}>Send</Button>
+                <Button variant='contained' color='secondary' disableElevation disableRipple onClick={submitMsg} sx={{position:'absolute', height:'100%',right:'0'}}>Send</Button>
             </Box>
 
         </Box>

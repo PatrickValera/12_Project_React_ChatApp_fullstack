@@ -22,7 +22,7 @@ function Main() {
       </Box> */}
       <Box sx={{ display: { xs: 'block', md: 'none' }, position: 'absolute', zIndex: '4', ml: '10px' }}>
         <Typography color='grey.600' fontSize='2rem' onClick={() => setMenuOpen(state => !state)}>
-          <i class="fas fa-bars" />
+          <i className="fas fa-bars" />
         </Typography>
       </Box>
       <Fade in={menuOpen}>

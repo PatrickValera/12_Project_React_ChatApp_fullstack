@@ -55,7 +55,7 @@ const Register = () => {
                 <StyledInput id='test' placeholder='email' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
                 <StyledInput id='test' placeholder='username' disableUnderline autoComplete='off' value={userName} type='text' onChange={(e) => setUserName(e.target.value)} />
                 <StyledInput placeholder='password' disableUnderline autoComplete='off' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
-                <StyledInput placeholder='password' disableUnderline autoComplete='off' value={confirmPassword} type='password' onChange={(e) => setConfirmPassword(e.target.value)} />
+                <StyledInput placeholder='confirm password' disableUnderline autoComplete='off' value={confirmPassword} type='password' onChange={(e) => setConfirmPassword(e.target.value)} />
                 <Button color='primary' variant='contained' disableRipple disableElevation onClick={handleClick} sx={{mt:'40px',mb:'10px'}}>Register</Button>
                 <Link to="/login" className='router-link'> <Typography color='white' sx={{cursor:'pointer'}} gutterBottom>Or Sign In</Typography></Link>
             </Container>
