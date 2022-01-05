@@ -49,6 +49,10 @@ app.use(express.json())
 //     next()
 // })
 
+// ROUTES HERE
+app.use('/api/users',userRoutes)
+app.use('/api/rooms',roomRoutes)
+
 // SERVE BUILD FILES TO CLIENT
 if(process.env.NODE_ENV==='production'){
     app.use(express.static(path.join(__dirname,'/frontend/build')))
@@ -61,8 +65,6 @@ if(process.env.NODE_ENV==='production'){
 })
 }
 
-// ROUTES HERE
-app.use('/api/users',userRoutes)
-app.use('/api/rooms',roomRoutes)
+
 
 httpServer.listen(process.env.PORT||5000,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))
