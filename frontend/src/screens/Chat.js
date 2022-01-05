@@ -40,9 +40,11 @@ const Chat = () => {
 
     const fetchMsgs = async () => {
         await axios.get(`/api/rooms/${roomName}`).then(({ data }) => {
-            console.log(data+"THIS IS MESSAGES")
+            // console.log(data+"THIS IS MESSAGES")
             setMessages(data)
-        }).catch(er => console.log(er))
+        }).then(()=>{      
+            msgsContainer.current.scrollTop = msgsContainer.current.scrollHeight}
+        ).catch(er => console.log(er))
     }
 
     useEffect(() => {
@@ -53,7 +55,7 @@ const Chat = () => {
         console.log("CONNECTING")
         socket.current = io(window.location.pathname);
         socket.current.on("getMessage", (data) => {
-            console.log(data+'THIS IS NEW MESSAGES')
+            // console.log(data+'THIS IS NEW MESSAGES')
             setMessages((state) => [...state, { text: data.text, sender: data.sender,icon:data.icon }])
         });
     }, [userInfo])
@@ -67,12 +69,13 @@ const Chat = () => {
 
     useEffect(() => {
     if(isInViewport()){
-        console.log("NEW IN VIEW")
-        msgsContainer.current.scrollTop = msgsContainer.current.scrollHeight
+        // console.log("NEW IN VIEW")
     }
     }, [messages])
 
     useEffect(() => {
+        msgsContainer.current.scrollTop = msgsContainer.current.scrollHeight
+
         console.log('IN CHAT')
     }, [])
     function isInViewport() {
@@ -90,7 +93,7 @@ const Chat = () => {
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
                     {messages&&messages.map((message) => (
                         <Box key={Math.floor(Math.random()*100000)} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
-                            {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/${message.icon||'poop.png'}`}/>}
+                            {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="rounded" src={`/images/${message.icon||'poop.png'}`}/>}
                             <Box display='block'>
                                 {message.sender && roomName === 'global' && <Typography variant='body1' fontWeight='600' color="grey.600" sx={{ mt: 1 }}>{message.sender}</Typography>}
                                 <Paper sx={{ p: 1, mb: 1, color: 'white' }}>
