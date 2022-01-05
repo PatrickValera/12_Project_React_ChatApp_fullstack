@@ -24,7 +24,7 @@ const Room = () => {
     const dispatch = useDispatch()
     const [open, setOpen] = useState(true);
     const { roomName } = useSelector(state => state.roomDetails)
-    const [userName, setUserName] = useState()
+    const [userName, setUserName] = useState("")
     const { userInfo } = useSelector(state => state.userLogin)
     const [anchorEl, setAnchorEl] = useState(null);
     const menuOpen = Boolean(anchorEl);
@@ -44,8 +44,7 @@ const Room = () => {
         dispatch(changeRoom(room))
     }
     useEffect(() => {
-        if (!userInfo) navigate('/login')
-        else (setUserName(userInfo.name))
+        if (userInfo) setUserName(userInfo.name)
     }, [userInfo])
 
     return (

@@ -12,6 +12,7 @@ const Chat = () => {
     const { userInfo } = useSelector(state => state.userLogin)
     const { roomName } = useSelector(state => state.roomDetails)
     const msgsContainer = useRef()
+    const element = useRef()
     const socket = useRef()
 
     const submitMsg = async () => {
@@ -40,35 +41,51 @@ const Chat = () => {
     const fetchMsgs = async () => {
         await axios.get(`/api/rooms/${roomName}`).then(({ data }) => {
             setMessages(data)
+            console.log(data)
         }).catch(er => console.log(er))
     }
 
     useEffect(() => {
-        if (!userInfo) navigate('/login')
+        if (!userInfo){ 
+            console.log('no userinfo. navigating to login screen')
+            navigate('/login')
+        }
+        console.log("CONNECTING")
         socket.current = io(window.location.pathname);
         socket.current.on("getMessage", (data) => {
             setMessages(state => [...state, { text: data.text, sender: data.sender,icon:data.icon }])
         });
-    }, [])
+    }, [userInfo])
 
     useEffect(() => {
         setMessages([])
         socket.current.emit('join-room', roomName)
         let timer=setTimeout(() => fetchMsgs(), 80)
-        // fetchMsgs()
         return (() => { clearTimeout(timer) })
     }, [roomName])
 
     useEffect(() => {
+    if(isInViewport()){
+        console.log("IN VIEW")
         msgsContainer.current.scrollTop = msgsContainer.current.scrollHeight
+    }
     }, [messages])
 
+    function isInViewport() {
+        const rect = element.current.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
     return (
         <Box display='flex' sx={{ height: '100vh', p: 4, backgroundColor: 'primary.dark', height: '100%', position: 'relative', flexDirection: 'column', zIndex: '2', pt: '50px' }}>
             <Box sx={{ flexGrow: '1', height: '1px' }}>
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    {messages&&messages.map((message, index) => (
-                        <Box key={index} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
+                    {messages.map((message) => (
+                        <Box key={Math.floor(Math.random()*100000)} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
                             {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/poop.png`}/>}
                             <Box display='block'>
                                 {message.sender && roomName === 'global' && <Typography variant='body1' fontWeight='600' color="grey.600" sx={{ mt: 1 }}>{message.sender}</Typography>}
@@ -76,9 +93,9 @@ const Chat = () => {
                                     <span className='msg'>{message.text}</span>
                                 </Paper>
                             </Box>
-
                         </Box>
                     ))}
+                    <div className="element" ref={element}></div>
                 </Box>
             </Box>
             <Box display='flex' sx={{ position: 'relative' }}>

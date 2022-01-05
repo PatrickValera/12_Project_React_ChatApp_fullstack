@@ -43,7 +43,7 @@ const Login = () => {
             navigate('/')
         }
         if (loginError) {
-            setError("Try again shithead")
+            setError("Incorrect email or password")
         }
     }, [userInfo, loginError])
     return (
