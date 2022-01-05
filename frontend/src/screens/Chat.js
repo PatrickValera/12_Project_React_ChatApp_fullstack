@@ -40,8 +40,8 @@ const Chat = () => {
 
     const fetchMsgs = async () => {
         await axios.get(`/api/rooms/${roomName}`).then(({ data }) => {
-            setMessages(data)
             console.log(data)
+            setMessages(data)
         }).catch(er => console.log(er))
     }
 
@@ -88,17 +88,17 @@ const Chat = () => {
         <Box display='flex' sx={{ height: '100vh', p: 4, backgroundColor: 'primary.dark', height: '100%', position: 'relative', flexDirection: 'column', zIndex: '2', pt: '50px' }}>
             <Box sx={{ flexGrow: '1', height: '1px' }}>
                 <Box ref={msgsContainer} display='flex' sx={{ height: '100%', overflow: 'auto', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    {messages.length>0?messages.map((message) => (
+                    {/* {messages.length>0?messages.map((message) => (
                         <Box key={Math.floor(Math.random()*100000)} display='flex' sx={{ alignItems: 'center', gap: 2 }}>
-                            {/* {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/poop.png`}/>} */}
+                            {roomName==='global'&&<Avatar sx={{ backgroundColor: 'white' }} variant="round" src={`/images/poop.png`}/>}
                             <Box display='block'>
-                                {/* {message.sender && roomName === 'global' && <Typography variant='body1' fontWeight='600' color="grey.600" sx={{ mt: 1 }}>{message.sender}</Typography>} */}
+                                {message.sender && roomName === 'global' && <Typography variant='body1' fontWeight='600' color="grey.600" sx={{ mt: 1 }}>{message.sender}</Typography>}
                                 <Paper sx={{ p: 1, mb: 1, color: 'white' }}>
                                     <span className='msg'>{message.text}</span>
                                 </Paper>
                             </Box>
                         </Box>
-                    )):"NO MESSAGES"}
+                    )):"NO MESSAGES"} */}
                     <div className="element" ref={element}></div>
                 </Box>
             </Box>
