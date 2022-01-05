@@ -89,8 +89,8 @@ const Room = () => {
             </Typography>
             <Collapse in={open} >
                 <Box sx={{ display: 'flex', flexDirection: 'column', pl: 2 }} >
-                    <Paper variant='contained' onClick={() => handleChangeRoom('globalanon')} sx={{ p: 1, mb: 1, cursor: 'pointer', background: `${roomName === 'globalanon' ? 'paper' : 'none'}` }}><Typography variant='body1' fontWeight='600' color='grey.400'>Global(Anonymous)</Typography></Paper>
-                    <Paper variant='contained' onClick={() => handleChangeRoom('global')} sx={{ p: 1, mb: 1, cursor: 'pointer', background: `${roomName === 'global' ? 'paper' : 'none'}` }}><Typography variant='body1' fontWeight='600' color='grey.400'>Other Global</Typography></Paper>
+                    <Paper variant='contained' className='room-tab' onClick={() => handleChangeRoom('globalanon')} sx={{ p: 1, mb: 1, cursor: 'pointer', background: `${roomName === 'globalanon' ? 'paper' : 'none'}` }}><Typography variant='body1' fontWeight='600' color='grey.400'>Global(Anonymous)</Typography></Paper>
+                    <Paper variant='contained' className='room-tab' onClick={() => handleChangeRoom('global')} sx={{ p: 1, mb: 1, cursor: 'pointer', background: `${roomName === 'global' ? 'paper' : 'none'}` }}><Typography variant='body1' fontWeight='600' color='grey.400'>Other Global</Typography></Paper>
                 </Box>
             </Collapse>
         </Box>

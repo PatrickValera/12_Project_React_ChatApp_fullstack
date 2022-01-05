@@ -65,3 +65,6 @@ outline: none;
   .msg{
     white-space: pre-wrap;
   }
+  .room-tab:hover{
+    background-color: #1f2122;
+  }

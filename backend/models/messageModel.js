@@ -12,6 +12,9 @@ const MessageSchema = new mongoose.Schema(
     },
     room:{
       type: String
+    },
+    icon:{
+      type: String
     }
   },
   { timestamps: true }
