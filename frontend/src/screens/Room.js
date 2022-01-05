@@ -46,6 +46,9 @@ const Room = () => {
     useEffect(() => {
         if (userInfo) setUserName(userInfo.name)
     }, [userInfo])
+    useEffect(() => {
+        console.log('IN ROOM')
+    }, [])
 
     return (
         <Box className='room-nav' sx={{ p: 4,pt:'50px', backgroundColor: 'primary.main', height: '100%', zIndex: '1' }}>

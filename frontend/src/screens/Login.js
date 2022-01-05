@@ -46,6 +46,9 @@ const Login = () => {
             setError("Incorrect email or password")
         }
     }, [userInfo, loginError])
+    useEffect(() => {
+        console.log('IN LOGIN')
+    }, [])
     return (
         <Box display='flex' autoComplete='off' sx={{ width: '100vw', height: '100vh', backgroundColor: 'primary.dark', alignItems: 'center' }}>
             <Container maxWidth='sm' component='form' sx={{ backgroundColor: 'primary.light', height: { xs: '100vh', sm: '500px' }, justifyContent: 'center', alignItems: 'center', gap: '10px', display: 'flex', flexDirection: 'column' }}>
