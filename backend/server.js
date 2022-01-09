@@ -67,4 +67,4 @@ if(process.env.NODE_ENV==='production'){
 
 
 
-httpServer.listen(process.env.PORT||5000,console.log(`SERVER IS RUNNING ON PORT ${process.env.PORT}`.green.underline))
+httpServer.listen(process.env.PORT||5000,console.log(`SERVER IS RUNNING ON ${process.env.PORT}`.green.underline))
