@@ -35,7 +35,7 @@ const Login = () => {
         dispatch(login(email, password))
     }
     const loadDemo = () => {
-        setEmail('poopoo@toilet.com')
+        setEmail('sampleuser@email.com')
         setPassword('pooplol')
     }
     useEffect(() => {
@@ -52,8 +52,8 @@ const Login = () => {
     return (
         <Box display='flex' autoComplete='off' sx={{ width: '100vw', height: '100vh', backgroundColor: 'primary.dark', alignItems: 'center' }}>
             <Container maxWidth='sm' component='form' sx={{ backgroundColor: 'primary.light', height: { xs: '100vh', sm: '500px' }, justifyContent: 'center', alignItems: 'center', gap: '10px', display: 'flex', flexDirection: 'column' }}>
-                <Typography color='white' fontFamily='La Belle Aurore' fontSize='5rem'>Poopcord</Typography>
-                <Typography color='grey.500' variant='body1' sx={{ mb: 4, mt: '-20px' }}>Discord but shit</Typography>
+                <Typography color='white' fontFamily='Russo one' fontSize='4rem' sx={{letterSpacing:'.1rem'}}>Chatcord</Typography>
+                <Typography color='grey.500' variant='body1' sx={{ mb: 4, mt: '-20px' }}></Typography>
                 {error && <Typography color='error'>{error}</Typography>}
                 <StyledInput id='email' placeholder='email' disableUnderline autoComplete='off' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
                 <StyledInput placeholder='password' disableUnderline autoComplete='off' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />

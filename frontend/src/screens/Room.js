@@ -63,7 +63,7 @@ const Room = () => {
             <Box className='room-nav' sx={{ p: 4, pt: '50px', backgroundColor: 'primary.main', height: '100%', zIndex: '1' }}>
                 <StyledTextField disableUnderline id="search" variant='filled' placeholder='Search...' autoComplete='off' onKeyUp={() => { console.log('hello') }} />
                 <Paper sx={{ display: 'flex', p: 2, mb: 2, alignItems: 'center' }}>
-                    <Avatar sx={{ backgroundColor: 'white' }} variant="rounded" src='/images/poop.png'>
+                    <Avatar sx={{ backgroundColor: 'white' }} variant="rounded">
                         {/* PV */}
                     </Avatar>
                     <Box display='block' sx={{ ml: 1, flexGrow: '1' }}>
